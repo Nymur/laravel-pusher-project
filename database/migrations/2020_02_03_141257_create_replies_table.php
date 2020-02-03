@@ -17,10 +17,11 @@ class CreateRepliesTable extends Migration
             $table->bigIncrements('id');
             $table->text('body');
 
-            $table->integer('question_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->unsignedbigInteger('question_id');
+            $table->unsignedbigInteger('user_id');
 
-            $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
+       /*delete the replies auto when the question is deleted*/
+        $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
 
             $table->timestamps();
         });
