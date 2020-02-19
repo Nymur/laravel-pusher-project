@@ -2,7 +2,7 @@
   <v-card
     color="grey lighten-4"
     flat
-    height="200px"
+    
     tile
   >
     <v-toolbar dense>
@@ -22,8 +22,11 @@
        <v-btn text>
          Category
        </v-btn>
-       <v-btn text>
+       <v-btn to='/login' text>
          Login
+       </v-btn>
+       <v-btn>
+        <v-icon>mdi-history</v-icon>
        </v-btn>
      </v-toolbar-items>	
 
