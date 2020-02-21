@@ -7,6 +7,11 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import User from "./Helpers/user"
+window.User = User
+// console.log(User.logedIn())
+// User.logOut()
+
 import vuetify from "./vuetify"
 import router from "./vuerouter"
 
