@@ -13,6 +13,7 @@ class User{
 
 		if(Token.isValid(access_token)){
 			Storage.store(access_token,userName);
+			window.location ="/forum";
 		}
 		return console.log(this.logedIn());
 	}
@@ -30,7 +31,8 @@ class User{
 	}
 
 	logOut(){
-		return Storage.clear()
+		 Storage.clear();
+		 window.location = "/forum";
 	}
 
 

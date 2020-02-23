@@ -13,22 +13,21 @@
       <v-spacer></v-spacer>
 	
       <v-toolbar-items class="hidden-sm-and-down"> 
-        <v-btn text>
-         Forum
-       </v-btn>
-       <v-btn text>
-         Ask Question
-       </v-btn>
-       <v-btn text>
-         Category
-       </v-btn>
-       <v-btn to='/login' text>
-         Login
-       </v-btn>
-       <v-btn>
-        <v-icon>mdi-history</v-icon>
-       </v-btn>
-     </v-toolbar-items>	
+      <div
+       v-for="item in items"
+       :key="item.title"
+      >
+        <v-btn
+         :to="item.to"
+         v-if="item.show"
+         text
+        >
+          {{item.title}}
+        </v-btn>
+      </div>
+       
+      </v-toolbar-items>
+
 
 
     </v-toolbar>
@@ -37,6 +36,21 @@
 
 <script>
   export default {
-    
+    data(){
+      return {
+        items:[
+          {title:'Forum', to: '/forum', show: true},
+          {title:'Ask Question', to: '/ask', show: User.logedIn()},
+          {title:'Category', to: '/category', show: User.logedIn()},
+          {title:'Login', to: '/login', show: !User.logedIn()},
+          {title:'Logout', to: '/logout', show: User.logedIn()},
+        ]
+      }
+    },
+    created(){
+      EventBus.$on('logout',()=>{
+        User.logOut()
+      })
+    }
   }
 </script>

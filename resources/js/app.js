@@ -9,8 +9,9 @@ require('./bootstrap');
 window.Vue = require('vue');
 import User from "./Helpers/user"
 window.User = User
+window.EventBus = new Vue()
 // console.log(User.logedIn())
-// User.logOut()
+// console.log(User.logOut())
 
 import vuetify from "./vuetify"
 import router from "./vuerouter"

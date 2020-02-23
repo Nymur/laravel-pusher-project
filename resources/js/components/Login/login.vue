@@ -23,6 +23,10 @@
           >
           	Login
           </v-btn>
+
+       <v-btn to='/signup' text>
+         Sign up
+       </v-btn>
        
 
     </v-container>
@@ -46,10 +50,16 @@
   			email   :"",
   			password:""
   		}
-  	}),
+    }),
+    created(){
+      if(User.logedIn()){
+        this.$router.push({name:'forum'})
+      }
+    },
     methods:{
     	login(){
-    		User.login(this.form)
+        User.login(this.form)
+        
     	}
     }
 

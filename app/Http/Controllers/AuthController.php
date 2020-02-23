@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\SignupRequest;
 
 
 class AuthController extends Controller
@@ -19,7 +20,7 @@ class AuthController extends Controller
         $this->middleware('JWT', ['except' => ['login', 'signUp']]);//the function name is used as param
     }
 
-    public function signUp(Request $request){
+    public function signUp(SignupRequest $request){
         User::create([
             'name'    => $request->name,
             'email'   => $request->email,
