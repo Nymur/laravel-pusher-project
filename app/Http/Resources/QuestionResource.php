@@ -16,10 +16,13 @@ class QuestionResource extends JsonResource
     {
         return [
             'title'      => $this->title,
+            'slug'       => $this->slug,
             'path'       => $this->path,
-            'body'       => $this->body,  
+            'body'       => $this->body,
             'user'       => $this->user->name,
-            'created_at' => $this->created_at->diffForHumans()
+            'user_id'    => $this->user_id,
+            'created_at' => $this->created_at->diffForHumans(),
+            'created_at' => $this->updated_at->diffForHumans()
         ];
     }
 }

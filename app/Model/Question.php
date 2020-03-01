@@ -7,7 +7,8 @@ use App\User;
 
 class Question extends Model
 {
-	protected $guarded = [];
+    // protected $guarded = [];
+    protected $fillable =['title','category_id','user_id','body'];
 	
     public function user(){
     	return $this->belongsTo(User::class);
@@ -26,6 +27,6 @@ class Question extends Model
     }
 
     public function getPathAttribute(){
-    	return asset("api/questions/$this->slug");
+    	return "questions/$this->slug";
     }
 }

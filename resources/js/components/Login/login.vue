@@ -18,13 +18,15 @@
           ></v-text-field>
 
           <v-btn
-			color="red"
+			class="purple white--text"
 			type="submit"
           >
           	Login
           </v-btn>
 
-       <v-btn to='/signup' text>
+       <v-btn to='/signup'
+        color='red'
+        text>
          Sign up
        </v-btn>
        

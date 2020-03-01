@@ -15,7 +15,7 @@ class User{
 			Storage.store(access_token,userName);
 			window.location ="/forum";
 		}
-		return console.log(this.logedIn());
+
 	}
 
 	hasToken(){
@@ -34,6 +34,27 @@ class User{
 		 Storage.clear();
 		 window.location = "/forum";
 	}
+
+	name(){
+		if(this.logedIn()){
+			return Storage.getUser()
+		}
+	}
+
+  id(){
+		if(this.logedIn()){
+			const payload = Token.payload(Storage.getToken());
+			return payload.sub;
+		}
+	}
+
+	own(id){
+		return this.id()==id ? true:false;
+	}
+
+
+
+
 
 
 }

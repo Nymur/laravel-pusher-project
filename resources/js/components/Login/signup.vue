@@ -59,14 +59,15 @@
         password:null,
         password_confirmation:null  
       },
-      created(){
+      
+      errors:{}
+    
+    }),
+    created(){
         if(User.logedIn()){
           this.$router.push({name:'forum'})
         }
       },
-      errors:{}
-    
-  	}),
     methods:{
       signup(){
         axios.post('/api/auth/signup',this.form)

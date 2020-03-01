@@ -8,9 +8,9 @@
 </head>
 <body>
   
-   <div id="app">
+   <v-app id="app">
    	 <home />
-   </div>
+   </v-app>
 
 
 
